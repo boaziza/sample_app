@@ -1,0 +1,121 @@
+/* General page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9; /* clean white background */
+    color: #333; /* dark grey for text */
+    padding: 40px;
+    margin: 0;
+}
+
+/* Form container */
+form {
+    background-color: #ffffff;  /* pure white form */
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    max-width: 600px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+/* Labels */
+label {
+    display: inline-block;
+    width: 100px;
+    font-weight: 600;
+    color: #0d1b2a; /* navy for emphasis */
+    margin-bottom: 8px;
+}
+
+/* Inputs */
+input[type="number"] {
+    padding: 8px 12px;
+    margin: 5px 15px 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+    color: #333;
+    width: 120px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #1b263b; /* navy focus border */
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background-color: #1b263b; /* navy */
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #415a77; /* lighter navy */
+    transform: translateY(-2px); /* small lift effect */
+}
+
+/* Results section */
+p {
+    font-size: 17px;
+    margin-top: 12px;
+}
+
+span {
+    font-weight: bold;
+    color: #0d1b2a; /* navy for numbers */
+}
+
+.forms-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 20px;
+}
+
+.form-side {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 45%;
+}
+
+/* Page responsiveness */
+@media (max-width: 600px) {
+    .form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .input[type="number"] {
+        width: 100px;
+    }
+
+    .label {
+        width: auto;
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .forms-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-side {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}

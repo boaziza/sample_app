@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="homepage.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="forms-container">
+        <div class="form-side">
+            <h1 style="text-align: center;">Index <br></h1>
+            <form action="">
+                <label for="index">P1 :&nbsp;&nbsp; Start</label>
+                <input type="number" name="pms" id="pms1">
+                <label for="index">&nbsp;&nbsp;&nbsp; End</label>
+                <input type="number" name="pms" id="pms2">
+                <br><br>
+
+                <label for="index">P2 :&nbsp;&nbsp; Start</label>
+                <input type="number" name="pms" id="pms3">
+                <label for="index">&nbsp;&nbsp;&nbsp; End</label>
+                <input type="number" name="pms" id="pms4">
+                <br><br>
+
+                <label for="index">P3 :&nbsp;&nbsp; Start</label>
+                <input type="number" name="ago" id="ago1">
+                <label for="index">&nbsp;&nbsp;&nbsp; End</label>
+                <input type="number" name="ago" id="ago2">
+                <br><br>
+
+                <label for="index">P4 :&nbsp;&nbsp; Start</label>
+                <input type="number" name="ago" id="ago3">
+                <label for="index">&nbsp;&nbsp;&nbsp; End</label>
+                <input type="number" name="ago" id="ago4">
+                <br><br>
+
+            </form>
+            <button onclick="calculateIndex()"> Calculate </button>
+
+            <p>Total Pms Vente: <span id="resultpms"></span></p>
+            <p>Total Ago Vente: <span id="resultago"></span></p>
+            <p>Total Vente: <span id="result"></span></p>
+
+
+        </div>
+
+        <div class="form-side">
+            <h1 style="text-align: center; ">Payments</h1>
+            <form action="">
+                <label for="momo"> MoMo: &nbsp;</label>
+                <input type="number" name="momo" id="momo"><br><br>
+
+                <label for="momoLoss"> MoMo Loss: &nbsp;</label>
+                <input type="number" name="momoLoss" id="momoLoss"><br><br>
+                
+                <label for="momo"> Terminal: &nbsp;</label>
+                <input type="number" name="terminal" id="terminal"><br><br>
+                
+                <label for="momo"> Fiche: &nbsp;</label>
+                <input type="number" name="fiche" id="fiche"><br><br>
+                
+                <label for="momo"> Bank Card: &nbsp;</label>
+                <input type="number" name="bankCard" id="bankCard"><br><br>
+
+                <label for="momo">Cash: &nbsp;</label>
+                <input type="number" name="cash" id="cash"><br><br>
+            </form>
+            <button onclick="payments()">Calculate payments</button>
+
+            <p>Total Payments: &nbsp;<span id="totalPayments"></span></p>
+            <p>Gain/Loss: &nbsp;<span id="gainPayments"></span></p>
+        </div>
+
+    </div>
+    <button onclick="logout()">Log out</button>
+
+    <script src="calculations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+ 
+    <script>
+        const client = new Appwrite.Client()
+        .setEndpoint("https://cloud.appwrite.io/v1") 
+        .setProject("68c3ec870024955539b0");
+
+        const account = new Appwrite.Account(client);
+
+        // ✅ Check if user is logged in
+        account.get()
+        .then(user => {
+            console.log("User is logged in:", user);
+        })
+        .catch(err => {
+            console.warn("Not logged in, redirecting...");
+            window.location.replace("http://127.0.0.1:5500/work%20project/app%20sample/sign-in/sign-in.html"); // 👈 change to your login page path
+        });
+    </script>
+</body>
+</html>

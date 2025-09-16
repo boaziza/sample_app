@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <h1>Stock</h1>
+    <form action="">
+
+        <label for="initialPms"> ESSENCE <br><br> Jauge Debut:</label>
+        <input type="number" name="initialPms" id="initialPms">
+        <label for="ventePms"> Ventes Litres: </label>
+        <input type="number" name="ventePms" id="ventePms">
+        <br><br>
+        
+        <label for="initialAgo"> MAZOUT <br><br> Jauge Debut:</label>
+        <input type="number" name="initialAgo" id="initialAgo">
+        <label for="venteAgo"> Ventes Litres: </label>
+        <input type="number" name="venteAgo" id="venteAgo">
+        <br>
+
+        <h3>Received Litres</h3><br>
+        <label for="receivedPms">ESSENCE: </label>
+        <input type="number" name="receivedPms" id="receivedPms">
+        <br><br>
+
+        <label for="receivedAgo">MAZOUT: </label>
+        <input type="number" name="receivedAgo" id="receivedAgo">
+        <br><br>
+
+        <h3>Physical stock</h3>
+        <label for="stockPms">ESSENCE:</label>
+        <input type="number" name="stockPms" id="stockPms">
+        <br><br>
+        <label for="stockAgo">MAZOUT:</label>
+        <input type="number" name="stockAgo" id="stockAgo">
+        <br><br>
+    </form>
+    <button onclick="stock()">Calculate Stock</button>
+    <h2>Theory Stock</h2>
+    <p>ESSENCE:&nbsp;<span id="theoryStockPms"></span></p>
+    <p>MAZOUT:&nbsp;<span id="theoryStockAgo"></span></p> 
+
+    <h2>Gain\Loss</h2>
+    <p>ESSENCE:&nbsp;<span id="gainFuelPms"></span></p>
+    <p>MAZOUT:&nbsp;<span id="gainFuelAgo"></span></p> 
+
+    <script src="calculations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+    <script>
+        const client = new Appwrite.Client()
+        .setEndpoint("https://cloud.appwrite.io/v1") 
+        .setProject("68c3ec870024955539b0");
+
+        const account = new Appwrite.Account(client);
+
+        // ✅ Check if user is logged in
+        account.get()
+        .then(user => {
+            console.log("User is logged in:", user);
+        })
+        .catch(err => {
+            console.warn("Not logged in, redirecting...");
+            window.location.replace(""); // 👈 change to your login page path
+        });
+    </script>
+</body>
+</html>

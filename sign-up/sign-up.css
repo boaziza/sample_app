@@ -1,0 +1,158 @@
+/* ======================================= */
+/* ====== Basic Resets and Variables ===== */
+/* ======================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #0056b3;
+  --background-light: #f5f5f5;
+  --background-white: #ffffff;
+  --text-dark: #333;
+  --text-medium: #666;
+  --border-color: #ddd;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /* Default to a single column layout for small screens */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================================= */
+/* ====== Mobile-First Layout (Default) === */
+/* ======================================= */
+
+.split-page {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100vh;
+}
+
+/* Image half styling for mobile */
+.image-half {
+  height: 250px; /* Example fixed height for mobile */
+  background-image: url('your-image.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Form half styling for mobile */
+.form-half {
+  flex: 1; /* Takes up remaining vertical space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--background-light);
+}
+
+.login-container {
+  padding: 40px;
+  background-color: var(--background-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.login-container p {
+  margin-bottom: 25px;
+  color: var(--text-medium);
+}
+
+/* Form inputs */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Link for signup */
+.signup-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* ======================================= */
+/* === Media Query for Larger Screens ==== */
+/* ======================================= */
+
+@media screen and (min-width: 768px) {
+  .split-page {
+    flex-direction: row; /* Switch to horizontal layout */
+    height: 100vh; /* Full viewport height for split screen */
+  }
+
+  .image-half,
+  .form-half {
+    flex: 1; /* Make both sections take up 50% of the space */
+    height: 100%; /* Reset height for the split layout */
+  }
+
+  .form-half {
+      justify-content: center;
+      align-items: center;
+  }
+
+  .image-half {
+    background-image: url('your-image.jpg');
+    background-size: cover; /* This is the key property */
+    background-position: center; /* Centers the image within the container */
+    background-repeat: no-repeat;
+  }
+}
